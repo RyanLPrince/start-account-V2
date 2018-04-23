@@ -33,6 +33,7 @@ public class AccountDBImp {
     	em.persist(account);
     }
     
+    //@Transactional(REQUIRED)
     public void deleteAccount(Account account) {
     	em.remove(account);
     }
