@@ -10,10 +10,11 @@ public class Account {
 	private String firstName;
 	@Column(length=40)
 	private String secondName;
-	@Id @GeneratedValue(strategy=GenerationType.AUTO) @Column(length=30)
-	private String accountNumber;
+	@Id @GeneratedValue() 
+	private long id;
+	private long accountNumber;
 
-	public Account(String firstName, String secondName, String accountNumber) {
+	public Account(String firstName, String secondName, long accountNumber) {
 		this.firstName = firstName;
 		this.secondName = secondName;
 		this.accountNumber = accountNumber;
@@ -35,11 +36,11 @@ public class Account {
 		this.secondName = secondName;
 	}
 
-	public String getAccountNumber() {
+	public long getAccountNumber() {
 		return accountNumber;
 	}
 
-	public void setAccountNumber(String accountNumber) {
+	public void setAccountNumber(long accountNumber) {
 		this.accountNumber = accountNumber;
 	}
 
