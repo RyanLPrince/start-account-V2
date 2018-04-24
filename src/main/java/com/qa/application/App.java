@@ -4,7 +4,8 @@ import com.qa.domain.Account;
 import com.qa.service.AccountService;
 import com.qa.util.JSONUtil;
 
-import buisness.AccountDBImp;
+import business.AccountDBImp;
+import business.AccountImp;
 
 public class App {
 
@@ -17,7 +18,7 @@ public class App {
 		service.addAccountFromMap(janeBloggs);
 		String mapAsJSON = util.getJSONForObject(service.getAccountMap());
 		System.out.println("This is the account map as JSON " + mapAsJSON);
-		AccountDBImp buisness = new AccountDBImp();
+		AccountImp buisness = new AccountDBImp();
 
 	}
 

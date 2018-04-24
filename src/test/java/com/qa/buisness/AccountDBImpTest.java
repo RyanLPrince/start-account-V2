@@ -17,13 +17,14 @@ import org.mockito.runners.MockitoJUnitRunner;
 import com.qa.domain.Account;
 import com.qa.util.JSONUtil;
 
-import buisness.AccountDBImp;
+import business.AccountDBImp;
+import business.AccountImp;
 
 @RunWith(MockitoJUnitRunner.class)
 public class AccountDBImpTest {
 	
 	@InjectMocks
-	private AccountDBImp accDBImp = new AccountDBImp();
+	private AccountImp accDBImp = new AccountDBImp();
 	
 	@Mock 
 	private EntityManager em;
