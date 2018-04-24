@@ -1,17 +1,19 @@
 package buisness;
 
 import java.util.List;
-
+import javax.transaction.Transactional;
+import static javax.transaction.Transactional.TxType.REQUIRED;
+import static javax.transaction.Transactional.TxType.SUPPORTS;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import javax.transaction.*;
+//import javax.transaction.*;
 
 import com.qa.domain.Account;
 import com.qa.util.JSONUtil;
 
-
+@Transactional(SUPPORTS)
 public class AccountDBImp {
 	
 	@PersistenceContext(unitName = "primary")
@@ -28,16 +30,17 @@ public class AccountDBImp {
     	TypedQuery<Account> query = em.createQuery("SELECT a FROM Account a ORDER BY a.firstName DESC", Account.class);
     	return query.getResultList();
     }
-
+    
+    @Transactional(REQUIRED)
     public void createAccount(Account account) {
     	em.persist(account);
     }
     
-    //@Transactional(REQUIRED)
+    @Transactional(REQUIRED)
     public void deleteAccount(Account account) {
     	em.remove(account);
     }
-    
+    @Transactional(REQUIRED)
     public void updateAccount(long id, String accountAsJSON) {
     	Account original=em.find(Account.class,id);
     	Account updated=ju.getObjectForJSON(accountAsJSON,Account.class);
