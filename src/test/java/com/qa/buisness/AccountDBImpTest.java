@@ -14,11 +14,10 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 //import org.mockito.stubbing.Answer;
 
+import com.qa.business.AccountDBImp;
+import com.qa.business.AccountImp;
 import com.qa.domain.Account;
 import com.qa.util.JSONUtil;
-
-import business.AccountDBImp;
-import business.AccountImp;
 
 @RunWith(MockitoJUnitRunner.class)
 public class AccountDBImpTest {

@@ -1,4 +1,4 @@
-package business;
+package com.qa.business;
 
 import static javax.transaction.Transactional.TxType.REQUIRED;
 

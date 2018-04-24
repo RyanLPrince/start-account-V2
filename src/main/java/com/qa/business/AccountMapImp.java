@@ -1,8 +1,10 @@
-package business;
+package com.qa.business;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.enterprise.inject.Alternative;
 
 import com.qa.domain.Account;
 import com.qa.util.JSONUtil;

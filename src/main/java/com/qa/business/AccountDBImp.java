@@ -1,4 +1,4 @@
-package business;
+package com.qa.business;
 
 import java.util.List;
 import javax.transaction.Transactional;
