@@ -36,7 +36,8 @@ public class AccountDBImpTest {
 	@Mock 
 	JSONUtil ju;
 	
-
+	
+	
 	
 	@Test
 	public void createAccountTest() {
@@ -48,12 +49,19 @@ public class AccountDBImpTest {
 		assertEquals(accDBImp.deleteAccount(account),"Account has been deleted");
 	}
 	@Test
-	public void findAccount() {
+	public void findAccountTest() {
 		//EntityManager em = Mockito.mock(EntityManager.class);
 		Mockito.when(em.find((Account.class),1L)).thenReturn(account);
 		assertEquals(accDBImp.findAccount(1L),account);
 	}
 	
+	/*
+	@Test
+	public void updateAccountTest() {
+		Mockito.when(accDBImp.updateAccount(1L,Mockito.anyString())).thenReturn("Account has been updated");
+		
+		String actual = accDBImp.updateAccount(1L,"");
+		assertEquals("Account has been updated",actual);
+	}*/
 }
-
 

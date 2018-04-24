@@ -46,8 +46,12 @@ public class AccountDBImp {
     public String updateAccount(long id, String accountAsJSON) {
     	Account original=em.find(Account.class,id);
     	Account updated=ju.getObjectForJSON(accountAsJSON,Account.class);
-    	em.merge(updated);
-    	return accountAsJSON;
+    	if (original!=null) {
+    		em.merge(updated);
+    		return "Account has been updated";
+    	}
+    	
+    	return "Account has not been updated";
     }
     
  
