@@ -32,8 +32,9 @@ public class AccountDBImp {
     }
     
     @Transactional(REQUIRED)
-    public void createAccount(Account account) {
+    public Account createAccount(Account account) {
     	em.persist(account);
+    	return (account);
     }
     
     @Transactional(REQUIRED)
@@ -41,10 +42,11 @@ public class AccountDBImp {
     	em.remove(account);
     }
     @Transactional(REQUIRED)
-    public void updateAccount(long id, String accountAsJSON) {
+    public String updateAccount(long id, String accountAsJSON) {
     	Account original=em.find(Account.class,id);
     	Account updated=ju.getObjectForJSON(accountAsJSON,Account.class);
     	em.merge(updated);
+    	return accountAsJSON;
     }
     
  
