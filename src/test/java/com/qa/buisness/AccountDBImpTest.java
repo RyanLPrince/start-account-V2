@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import javax.persistence.EntityManager;
 
+//import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -24,12 +25,12 @@ public class AccountDBImpTest {
 	@InjectMocks
 	private AccountDBImp accDBImp = new AccountDBImp();
 	
-	@Mock
+	@Mock 
 	private EntityManager em;
 	
 	
 	@Mock 
-	private Account account=new Account("Ryan","Prince",123);
+	private Account account;
 	
 	
 	@Mock 
@@ -38,13 +39,21 @@ public class AccountDBImpTest {
 
 	
 	@Test
-	public void createUsertest() {
-		assertEquals(accDBImp.createAccount(account),account);
+	public void createAccountTest() {
+		assertEquals(accDBImp.createAccount(account),"Account has been created");
 	}
 	
-	/*@Test 
-	public void delete
-	*/
+	@Test 
+	public void deleteAccountTest() {
+		assertEquals(accDBImp.deleteAccount(account),"Account has been deleted");
+	}
+	@Test
+	public void findAccount() {
+		//EntityManager em = Mockito.mock(EntityManager.class);
+		Mockito.when(em.find((Account.class),1L)).thenReturn(account);
+		assertEquals(accDBImp.findAccount(1L),account);
+	}
+	
 }
 
 

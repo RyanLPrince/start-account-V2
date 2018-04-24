@@ -32,14 +32,15 @@ public class AccountDBImp {
     }
     
     @Transactional(REQUIRED)
-    public Account createAccount(Account account) {
+    public String createAccount(Account account) {
     	em.persist(account);
-    	return (account);
+    	return "Account has been created";
     }
     
     @Transactional(REQUIRED)
-    public void deleteAccount(Account account) {
+    public String deleteAccount(Account account) {
     	em.remove(account);
+    	return "Account has been deleted";
     }
     @Transactional(REQUIRED)
     public String updateAccount(long id, String accountAsJSON) {
